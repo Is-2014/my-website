@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Game</title>
+</head>
+<body>
+    <canvas id="can" width="1278" height="600" style="border: 1px solid rgba(255, 0, 0, 0.726);"></canvas>
+    <script>
+        const c = document.getElementById("can")
+        const ctx = c.getContext("2d")
+
+        let tankobj = {
+            x:0,
+            y:0,
+            w:222,
+            h:99,
+            speed: 3
+        }
+        let tankimg = {
+            src: "tank.png",
+            width: 216,
+            height: 233,
+            visible: true
+
+
+        }
+       
+        
+
+   
+
+        let tank = new Image()  // create object to hold image variables - such as 
+        tank.src = "tank1.png"
+
+        console.log(tank)
+        let tank2 = new Image()
+        tank2.src = "tank2.png"
+
+        
+
+
+        let x = 177
+        let y = 485
+
+        function draw(){
+
+            ctx.clearRect(0, 0, c.width, c.height)
+
+            ctx.fillStyle = "#05f5e1"
+            ctx.fillRect(0, 0, c.width, c.height)
+
+            
+            ctx.fillStyle = "brown" 
+            ctx.fillRect(0, 550, c.width, 50) 
+
+            ctx.fillStyle="green"
+            ctx.fillRect(0, 530, c.width, 20) 
+
+            ctx.drawImage(tank, 84, 470, 233/2.5, 216/2.5)//image variable name, x, y, w, h
+            ctx.drawImage(tank2, 1101, 470, 233/2.5, 216/2.5)
+
+            ctx.fillStyle = "brown" 
+            ctx.fillRect(614, 250, 50, 350) 
+
+            ctx.fillStyle = "black" 
+            ctx.fillRect(x, y, 20, 20) 
+            if(y>100){
+                x++
+                y--
+                console.log("x: ", x, "y: ", y)
+            }
+           
+        
+            
+            requestAnimationFrame(draw)
+        }
+        draw()
+
+    </script>
+</body>
+</html>
